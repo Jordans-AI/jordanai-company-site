@@ -99,6 +99,47 @@ Update text content in individual component files under `/components`
 
 Replace placeholder images in `Hero.tsx` and `About.tsx` with actual images
 
+## Deployment
+
+This project includes a complete production deployment setup for Hetzner VPS with Cloudflare DNS.
+
+### Quick Deploy
+
+1. **Set up server:**
+   ```bash
+   ssh root@YOUR_SERVER_IP
+   wget https://raw.githubusercontent.com/YOUR_USERNAME/jordanai-company-site/main/deployment/scripts/server-setup.sh
+   sudo bash server-setup.sh
+   ```
+
+2. **Configure GitHub Secrets:**
+   ```bash
+   ./deployment/scripts/setup-github-secrets.sh
+   ```
+
+3. **Deploy:**
+   ```bash
+   git push origin main
+   ```
+
+### Documentation
+
+- **[deployment/DEPLOYMENT.md](deployment/DEPLOYMENT.md)** - Complete deployment guide
+- **[deployment/RUNBOOK.md](deployment/RUNBOOK.md)** - Operations and maintenance
+- **[deployment/README.md](deployment/README.md)** - Deployment overview
+
+### Features
+
+✅ **Automated CI/CD** with GitHub Actions
+✅ **Docker containerization** for consistent deployments
+✅ **Nginx reverse proxy** with SSL/TLS
+✅ **Health checks** and monitoring
+✅ **One-click rollback** for emergency recovery
+✅ **Rate limiting** and security headers
+✅ **Cloudflare integration** for CDN and DDoS protection
+
+For detailed instructions, see [deployment/DEPLOYMENT.md](deployment/DEPLOYMENT.md).
+
 ## Contact Information
 
 - Email: shaylee@jordan-ai.com
