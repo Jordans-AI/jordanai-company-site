@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 export default function Hero() {
   const scrollToContact = () => {
@@ -18,13 +19,16 @@ export default function Hero() {
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="relative aspect-square md:aspect-[4/5] rounded-sm overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300"
+          className="relative aspect-square md:aspect-[4/5] rounded-sm overflow-hidden bg-background flex items-center justify-center"
         >
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-400/20 to-gray-600/20" />
-          {/* Placeholder for hero image - you can replace with actual image */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-32 h-32 border-2 border-white/30 rounded-full" />
-          </div>
+          <Image
+            src="/jordan-ai-logo.png"
+            alt="Jordan-AI Logo"
+            width={400}
+            height={400}
+            className="object-contain p-8"
+            priority
+          />
         </motion.div>
 
         {/* Right side - Text */}
