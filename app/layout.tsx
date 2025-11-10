@@ -13,8 +13,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/jordan-ai-logo.png",
-        width: 1200,
-        height: 630,
+        width: 1024,
+        height: 1536,
         alt: "Jordan-AI Logo",
       },
     ],
