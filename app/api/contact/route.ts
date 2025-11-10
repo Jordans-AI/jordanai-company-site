@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: NextRequest) {
   console.log('========================================');
   console.log('📧 Contact form submission received');
@@ -24,6 +22,9 @@ export async function POST(req: NextRequest) {
     }
 
     console.log('✅ API Key found:', process.env.RESEND_API_KEY.substring(0, 10) + '...');
+
+    // Initialize Resend with API key
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     // Validation
     if (!name || !email) {
