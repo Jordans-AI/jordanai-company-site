@@ -6,6 +6,8 @@ const nextConfig = {
   // Optimize for production
   poweredByHeader: false,
   compress: true,
+  // Fix standalone build path issue - set correct root directory
+  outputFileTracingRoot: __dirname,
 }
 
 module.exports = nextConfig
