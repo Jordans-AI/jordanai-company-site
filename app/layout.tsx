@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://jordan-ai.com'),
   title: "Jordan-AI | AI Solutions for Business Growth",
   description: "Empower your business with AI. Simplify, automate, and grow smarter with Jordan-AI's tailored automation and intelligence solutions.",
   openGraph: {
