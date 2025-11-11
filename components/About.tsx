@@ -44,7 +44,7 @@ export default function About() {
             className="relative aspect-[4/3] rounded-sm overflow-hidden"
           >
             <Image
-              src="/wall.png"
+              src="/liquid-glass2.PNG"
               alt="Jordan-AI"
               fill
               className="object-cover"
