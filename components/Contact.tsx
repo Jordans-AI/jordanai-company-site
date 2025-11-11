@@ -13,6 +13,7 @@ export default function Contact() {
     phone: '',
     message: '',
   });
+  const [privacyConsent, setPrivacyConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -40,6 +41,7 @@ export default function Contact() {
       // Success
       setSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
+      setPrivacyConsent(false);
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to send message. Please try again.');
@@ -148,6 +150,29 @@ export default function Contact() {
               Thank you! We'll get back to you soon.
             </div>
           )}
+
+          <div className="flex items-start gap-3">
+            <input
+              type="checkbox"
+              id="privacy-consent"
+              required
+              checked={privacyConsent}
+              onChange={(e) => setPrivacyConsent(e.target.checked)}
+              className="mt-1 w-4 h-4 border border-accent/50 focus:ring-2 focus:ring-primary/20 focus:outline-none"
+            />
+            <label htmlFor="privacy-consent" className="text-sm text-secondary leading-relaxed">
+              I agree to the{' '}
+              <a
+                href="/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </a>{' '}
+              and consent to my information being processed to respond to my inquiry. *
+            </label>
+          </div>
 
           <motion.button
             type="submit"

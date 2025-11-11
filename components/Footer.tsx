@@ -4,17 +4,34 @@ import { motion } from 'framer-motion';
 
 export default function Footer() {
   return (
-    <footer className="py-12 px-6 border-t border-accent/50">
+    <footer className="py-12 px-6 border-t border-accent/50" role="contentinfo">
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-secondary text-sm"
+            className="flex flex-col md:flex-row items-center gap-4 md:gap-6"
           >
-            © 2025 Jordan-AI. All rights reserved.
-          </motion.p>
+            <p className="text-secondary text-sm">
+              © 2025 Jordan-AI. All rights reserved.
+            </p>
+            <div className="flex items-center gap-4 text-sm">
+              <a
+                href="/privacy"
+                className="text-secondary hover:text-primary transition-colors"
+              >
+                Privacy Policy
+              </a>
+              <span className="text-accent">•</span>
+              <a
+                href="/terms"
+                className="text-secondary hover:text-primary transition-colors"
+              >
+                Terms of Service
+              </a>
+            </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0 }}

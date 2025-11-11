@@ -22,12 +22,21 @@ export default function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/95 backdrop-blur-sm shadow-sm' : 'bg-background'
-      }`}
-    >
-      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <>
+      {/* Skip to main content link for accessibility */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-[100] focus:px-6 focus:py-3 focus:bg-primary focus:text-background focus:text-sm focus:tracking-wide"
+      >
+        Skip to main content
+      </a>
+
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-background/95 backdrop-blur-sm shadow-sm' : 'bg-background'
+        }`}
+      >
+        <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between" aria-label="Main navigation">
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           className="flex items-center hover:opacity-70 transition-opacity"
@@ -85,5 +94,6 @@ export default function Header() {
         </button>
       </nav>
     </header>
+    </>
   );
 }
