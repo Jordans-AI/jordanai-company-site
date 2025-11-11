@@ -103,16 +103,36 @@ docker-compose up -d
 
 # Wait for container to be healthy
 print_status "Waiting for application to be ready..."
-MAX_ATTEMPTS=60
+MAX_ATTEMPTS=90
 ATTEMPT=0
 while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
-    if docker-compose exec -T jordan-ai wget -q --spider http://localhost:3000/api/health 2>/dev/null; then
+    # Check Docker's native healthcheck status
+    HEALTH_STATUS=$(docker inspect --format='{{.State.Health.Status}}' jordan-ai-web 2>/dev/null || echo "none")
+
+    if [ "$HEALTH_STATUS" = "healthy" ]; then
         print_status "✅ Application is healthy and ready!"
         break
+    elif [ "$HEALTH_STATUS" = "unhealthy" ]; then
+        print_error "❌ Application is unhealthy"
+        print_error "Container logs:"
+        docker-compose logs --tail=20 jordan-ai
+        print_error "Rolling back to previous version..."
+        docker-compose down
+        # Restore from backup if available
+        LATEST_BACKUP=$(ls -t "$BACKUP_DIR"/backup-*.tar.gz 2>/dev/null | head -n 1)
+        if [ -n "$LATEST_BACKUP" ]; then
+            tar -xzf "$LATEST_BACKUP" -C "$PROJECT_DIR"
+            docker-compose up -d
+        fi
+        exit 1
     fi
+
     ATTEMPT=$((ATTEMPT + 1))
     if [ $ATTEMPT -eq $MAX_ATTEMPTS ]; then
         print_error "❌ Application failed to start within timeout"
+        print_error "Final health status: $HEALTH_STATUS"
+        print_error "Container logs:"
+        docker-compose logs --tail=20 jordan-ai
         print_error "Rolling back to previous version..."
         docker-compose down
         # Restore from backup if available
