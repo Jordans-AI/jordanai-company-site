@@ -59,6 +59,12 @@ if [ ! -d ".git" ]; then
     git clone https://github.com/Jordans-AI/jordanai-company-site.git jordan-ai
     cd jordan-ai
 else
+    # Fix git directory permissions if needed
+    if [ -d ".git" ]; then
+        print_status "Ensuring correct git directory permissions..."
+        sudo chown -R $(whoami):$(whoami) .git 2>/dev/null || true
+        chmod -R u+w .git 2>/dev/null || true
+    fi
     git fetch origin
     git reset --hard origin/main
 fi
