@@ -97,7 +97,7 @@ docker-compose up -d
 
 # Wait for container to be healthy
 print_status "Waiting for application to be ready..."
-MAX_ATTEMPTS=30
+MAX_ATTEMPTS=60
 ATTEMPT=0
 while [ $ATTEMPT -lt $MAX_ATTEMPTS ]; do
     if docker-compose exec -T jordan-ai wget -q --spider http://localhost:3000/api/health 2>/dev/null; then
