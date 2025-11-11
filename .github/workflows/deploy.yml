@@ -69,6 +69,8 @@ jobs:
             cat > ${{ env.DEPLOY_PATH }}/.env << 'ENVEOF'
           NODE_ENV=production
           RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+          RESEND_FROM_EMAIL=get-in-touch@notifications.jordan-ai.com
+          RESEND_TO_EMAIL=shaylee@jordan-ai.com
           NEXT_PUBLIC_SITE_URL=https://jordan-ai.com
           NEXT_PUBLIC_APP_VERSION=${{ github.sha }}
           ENVEOF
