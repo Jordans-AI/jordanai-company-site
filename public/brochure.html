@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan-AI Business Brochure</title>
+
+  <!-- Google Fonts - Same as website -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --color-background: #F8F7F4;
+      --color-primary: #1A1A1A;
+      --color-secondary: #5E5E5E;
+      --color-accent: #E8E5DF;
+      --font-playfair: "Playfair Display", serif;
+      --font-inter: "Inter", sans-serif;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+    }
+
+    body {
+      font-family: var(--font-inter);
+      background: var(--color-background);
+      color: var(--color-primary);
+      line-height: 1.6;
+    }
+
+    .page {
+      width: 210mm;
+      min-height: 297mm;
+      padding: 30mm 25mm 40mm 25mm;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+
+    @media screen {
+      .page {
+        margin: 20px auto;
+      }
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      padding-bottom: 15px;
+      border-bottom: 2px solid var(--color-accent);
+    }
+
+    .logo-section {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-name {
+      font-family: var(--font-playfair);
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+
+    .tagline {
+      font-size: 11px;
+      color: var(--color-secondary);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-top: 5px;
+    }
+
+    /* Hero Section */
+    .hero {
+      margin-bottom: 25px;
+    }
+
+    .hero-title {
+      font-family: var(--font-playfair);
+      font-size: 36px;
+      line-height: 1.15;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--color-secondary);
+      line-height: 1.6;
+      max-width: 600px;
+    }
+
+    /* Section Styles */
+    .section {
+      margin-bottom: 25px;
+    }
+
+    .section-title {
+      font-family: var(--font-playfair);
+      font-size: 22px;
+      margin-bottom: 12px;
+      color: var(--color-primary);
+      border-bottom: 1px solid var(--color-accent);
+      padding-bottom: 6px;
+    }
+
+    .section-text {
+      font-size: 12px;
+      color: var(--color-secondary);
+      line-height: 1.5;
+      margin-bottom: 10px;
+    }
+
+    /* Services Grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .service-item {
+      background: var(--color-background);
+      padding: 12px;
+    }
+
+    .service-title {
+      font-weight: 600;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: var(--color-primary);
+    }
+
+    .service-desc {
+      font-size: 11px;
+      color: var(--color-secondary);
+      line-height: 1.5;
+    }
+
+    /* Process Steps */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 10px;
+      background: var(--color-background);
+    }
+
+    .step-number {
+      font-family: var(--font-playfair);
+      font-size: 28px;
+      color: var(--color-primary);
+      margin-bottom: 6px;
+    }
+
+    .step-title {
+      font-weight: 600;
+      font-size: 12px;
+      margin-bottom: 5px;
+      color: var(--color-primary);
+    }
+
+    .step-desc {
+      font-size: 9px;
+      color: var(--color-secondary);
+      line-height: 1.3;
+    }
+
+    /* Questions List */
+    .questions-list {
+      margin-top: 20px;
+    }
+
+    .question-item {
+      margin-bottom: 15px;
+      padding-left: 25px;
+      position: relative;
+    }
+
+    .question-number {
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: 13px;
+    }
+
+    .question-text {
+      font-size: 12px;
+      color: var(--color-secondary);
+      line-height: 1.7;
+    }
+
+    .question-strong {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+
+    /* Contact Section */
+    .contact-info {
+      background: var(--color-background);
+      padding: 25px;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    .contact-title {
+      font-family: var(--font-playfair);
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: var(--color-primary);
+    }
+
+    .contact-details {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .contact-item {
+      font-size: 13px;
+      color: var(--color-secondary);
+    }
+
+    .contact-label {
+      font-weight: 600;
+      color: var(--color-primary);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid var(--color-accent);
+      text-align: center;
+      font-size: 11px;
+      color: var(--color-secondary);
+    }
+  </style>
+</head>
+<body>
+  <!-- PAGE 1 -->
+  <div class="page">
+    <!-- Header -->
+    <div class="header">
+      <div class="logo-section">
+        <img src="jordan-ai-logo.png" alt="Jordan-AI Logo" class="logo">
+        <div>
+          <div class="brand-name">Jordan-AI</div>
+          <div class="tagline">AI Solutions for Modern Business</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1 class="hero-title">Empower Your Business with AI</h1>
+      <p class="hero-subtitle">
+        We help companies leverage AI tools and automations to boost productivity, efficiency, and growth through a simple, human-centered approach. Transform your workflow without the complexity.
+      </p>
+    </div>
+
+    <!-- About -->
+    <div class="section">
+      <h2 class="section-title">Who We Are</h2>
+      <p class="section-text">
+        At Jordan-AI, we believe AI should work for you - not the other way around. We take the complexity out of automation and AI, delivering practical solutions that fit seamlessly into your existing workflows. Our approach is human-first: we listen, we design, we deliver. No jargon, no over-engineering - just smart tools that make your business run better.
+      </p>
+    </div>
+
+    <!-- Services -->
+    <div class="section">
+      <h2 class="section-title">What We Offer</h2>
+      <div class="services-grid">
+        <div class="service-item">
+          <div class="service-title">Workflow Automations</div>
+          <div class="service-desc">Eliminate repetitive tasks and streamline operations</div>
+        </div>
+        <div class="service-item">
+          <div class="service-title">Smart Data Dashboards</div>
+          <div class="service-desc">Real-time insights to make better decisions faster</div>
+        </div>
+        <div class="service-item">
+          <div class="service-title">AI-Powered Customer Support</div>
+          <div class="service-desc">Enhance customer experience with intelligent automation</div>
+        </div>
+        <div class="service-item">
+          <div class="service-title">Business Intelligence Tools</div>
+          <div class="service-desc">Transform data into actionable strategies</div>
+        </div>
+        <div class="service-item">
+          <div class="service-title">Custom Integrations</div>
+          <div class="service-desc">Connect your tools for seamless workflows</div>
+        </div>
+        <div class="service-item">
+          <div class="service-title">Strategy & Training</div>
+          <div class="service-desc">Empower your team with AI knowledge and best practices</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Process -->
+    <div class="section">
+      <h2 class="section-title">Our Process</h2>
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="step-number">1</div>
+          <div class="step-title">Discover</div>
+          <div class="step-desc">We learn your business, workflows, and goals</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">2</div>
+          <div class="step-title">Design</div>
+          <div class="step-desc">We craft tailored AI solutions that fit perfectly</div>
+        </div>
+        <div class="process-step">
+          <div class="step-number">3</div>
+          <div class="step-title">Deliver</div>
+          <div class="step-desc">We implement, train, and support your team</div>
+        </div>
+      </div>
+      <p class="section-text" style="margin-top: 20px;">
+        We start small, test fast, and scale what works - so you see value from day one.
+      </p>
+    </div>
+  </div>
+
+  <!-- PAGE 2 -->
+  <div class="page page-break">
+    <!-- Discovery Questions -->
+    <div class="section">
+      <h2 class="section-title">Discovery Questions - Our First Meeting Guide</h2>
+      <p class="section-text">
+        To understand your business and identify the best opportunities for AI integration, we'll explore these key areas together:
+      </p>
+
+      <div class="questions-list">
+        <div class="question-item">
+          <span class="question-number">1.</span>
+          <div class="question-text">
+            <span class="question-strong">Tell me a bit about your business</span> - what does it do, who are your customers, and what is your main workflow?
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">2.</span>
+          <div class="question-text">
+            <span class="question-strong">What are the three areas where your business wastes the most time?</span>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">3.</span>
+          <div class="question-text">
+            <span class="question-strong">What tasks repeat themselves in your business?</span> (Reports, customer management, marketing, operations, communication, service, CRM...)
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">4.</span>
+          <div class="question-text">
+            <span class="question-strong">What feels stuck or slow in your business today?</span>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">5.</span>
+          <div class="question-text">
+            <span class="question-strong">If you could "press a button" and improve something - what would it be?</span>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">6.</span>
+          <div class="question-text">
+            <span class="question-strong">How do you work with information today?</span> (Files, spreadsheets, CRM, project management...)
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">7.</span>
+          <div class="question-text">
+            <span class="question-strong">Do you have experience with AI tools already?</span> What worked and what didn't?
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">8.</span>
+          <div class="question-text">
+            <span class="question-strong">What's most important for you to achieve in this process</span> - time savings? cost savings? improved service? increased sales?
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">9.</span>
+          <div class="question-text">
+            <span class="question-strong">If we decide to move forward and work together</span> - who do you think is the right person or team we should work with, and who we can train to ensure smooth and efficient implementation?
+          </div>
+        </div>
+
+        <div class="question-item">
+          <span class="question-number">10.</span>
+          <div class="question-text">
+            <span class="question-strong">Are there systems or infrastructure you're committed to?</span> (Regulations, data security, servers, cloud, existing tools that can't be changed)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="contact-info">
+      <h3 class="contact-title">Let's Talk About Your Business</h3>
+      <div class="contact-details">
+        <div class="contact-item">
+          <span class="contact-label">Email</span>
+          shaylee@jordan-ai.com
+        </div>
+        <div class="contact-item">
+          <span class="contact-label">Phone</span>
+          +972 054 972 8712
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      © 2025 Jordan-AI. All rights reserved. | Empowering businesses through intelligent automation.
+    </div>
+  </div>
+
+</body>
+</html>
