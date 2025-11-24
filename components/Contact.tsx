@@ -13,7 +13,11 @@ export default function Contact() {
     phone: '',
     message: '',
   });
-  const [privacyConsent, setPrivacyConsent] = useState(false);
+  const [consents, setConsents] = useState({
+    privacy: false,
+    dataSharing: false,
+    marketing: false,
+  });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
@@ -41,7 +45,7 @@ export default function Contact() {
       // Success
       setSubmitted(true);
       setFormData({ name: '', email: '', phone: '', message: '' });
-      setPrivacyConsent(false);
+      setConsents({ privacy: false, dataSharing: false, marketing: false });
       setTimeout(() => setSubmitted(false), 5000);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to send message. Please try again.');
@@ -151,27 +155,74 @@ export default function Contact() {
             </div>
           )}
 
-          <div className="flex items-start gap-3">
-            <input
-              type="checkbox"
-              id="privacy-consent"
-              required
-              checked={privacyConsent}
-              onChange={(e) => setPrivacyConsent(e.target.checked)}
-              className="mt-1 w-4 h-4 border border-accent/50 focus:ring-2 focus:ring-primary/20 focus:outline-none"
-            />
-            <label htmlFor="privacy-consent" className="text-sm text-secondary leading-relaxed">
-              I agree to the{' '}
-              <a
-                href="/privacy"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline hover:text-primary transition-colors"
-              >
-                Privacy Policy
-              </a>{' '}
-              and consent to my information being processed to respond to my inquiry. *
-            </label>
+          {/* AI Services Brief Disclaimer */}
+          <div className="bg-accent/20 border-l-2 border-primary/30 p-4 text-xs text-secondary leading-relaxed">
+            <p>
+              <strong className="text-primary">AI Services Disclaimer:</strong> Jordan-AI provides technical
+              AI implementation consulting. This is not legal, financial, or regulatory advice. AI systems
+              have limitations and do not guarantee specific results.
+            </p>
+          </div>
+
+          {/* Granular Consent Checkboxes */}
+          <div className="space-y-4 border-t border-accent/30 pt-6">
+            <p className="text-sm font-medium text-primary">Required Consents *</p>
+
+            {/* Privacy & Data Processing Consent */}
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="privacy-consent"
+                required
+                checked={consents.privacy}
+                onChange={(e) => setConsents({ ...consents, privacy: e.target.checked })}
+                className="mt-1 w-4 h-4 border border-accent/50 focus:ring-2 focus:ring-primary/20 focus:outline-none"
+              />
+              <label htmlFor="privacy-consent" className="text-sm text-secondary leading-relaxed">
+                I agree to the{' '}
+                <a
+                  href="/privacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline hover:text-primary transition-colors"
+                >
+                  Privacy Policy
+                </a>{' '}
+                and consent to Jordan-AI processing my business contact information to respond to my
+                inquiry and provide consulting services. *
+              </label>
+            </div>
+
+            {/* Data Sharing with AI Platforms Consent */}
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="data-sharing-consent"
+                required
+                checked={consents.dataSharing}
+                onChange={(e) => setConsents({ ...consents, dataSharing: e.target.checked })}
+                className="mt-1 w-4 h-4 border border-accent/50 focus:ring-2 focus:ring-primary/20 focus:outline-none"
+              />
+              <label htmlFor="data-sharing-consent" className="text-sm text-secondary leading-relaxed">
+                I understand that Jordan-AI may need to share project data with third-party AI service
+                providers (e.g., OpenAI, Anthropic) as necessary for service delivery. *
+              </label>
+            </div>
+
+            {/* Optional Marketing Consent */}
+            <div className="flex items-start gap-3 pt-3 border-t border-accent/30">
+              <input
+                type="checkbox"
+                id="marketing-consent"
+                checked={consents.marketing}
+                onChange={(e) => setConsents({ ...consents, marketing: e.target.checked })}
+                className="mt-1 w-4 h-4 border border-accent/50 focus:ring-2 focus:ring-primary/20 focus:outline-none"
+              />
+              <label htmlFor="marketing-consent" className="text-sm text-secondary leading-relaxed">
+                <span className="text-xs text-primary font-medium">Optional:</span> I would like to
+                receive occasional updates, case studies, and AI insights from Jordan-AI.
+              </label>
+            </div>
           </div>
 
           <motion.button

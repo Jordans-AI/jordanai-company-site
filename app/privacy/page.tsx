@@ -135,9 +135,92 @@ export default function PrivacyPolicy() {
 
           <section>
             <h2 className="text-2xl font-playfair mb-4">Cookies and Tracking Technologies</h2>
-            <p className="text-secondary leading-relaxed">
-              Currently, our website does not use cookies or tracking technologies for analytics or advertising purposes. If we implement such technologies in the future, we will update this Privacy Policy and obtain your consent where required.
+            <p className="text-secondary leading-relaxed mb-4">
+              We use only essential cookies necessary for the website to function properly. These include:
             </p>
+            <ul className="list-disc pl-6 text-secondary space-y-2">
+              <li><strong>Essential cookies:</strong> Session management, security, and user preferences</li>
+              <li><strong>Consent cookies:</strong> To remember your cookie consent preferences</li>
+            </ul>
+            <p className="text-secondary leading-relaxed mt-4">
+              <strong>We do not use:</strong> Analytics cookies, advertising cookies, or tracking technologies.
+              If we implement such technologies in the future, we will update this Privacy Policy and obtain
+              your explicit consent as required by Israeli law.
+            </p>
+          </section>
+
+          <section>
+            <h2 className="text-2xl font-playfair mb-4">Israeli Privacy Protection Law Compliance</h2>
+            <p className="text-secondary leading-relaxed mb-4">
+              Jordan-AI complies with the Israeli Privacy Protection Law, 5741-1981, as amended by Amendment No. 13
+              (effective August 14, 2025). We are committed to protecting the privacy rights of Israeli residents.
+            </p>
+
+            <h3 className="text-xl font-playfair mb-3 mt-6">Legal Basis for Processing</h3>
+            <p className="text-secondary leading-relaxed mb-4">
+              We process your business contact information and project data based on:
+            </p>
+            <ul className="list-disc pl-6 text-secondary space-y-2">
+              <li><strong>Contract Performance:</strong> To deliver AI consulting services you've requested</li>
+              <li><strong>Legitimate Interest:</strong> To maintain client relationships and improve our services</li>
+              <li><strong>Consent:</strong> For marketing communications (you can opt-in or opt-out at any time)</li>
+            </ul>
+
+            <h3 className="text-xl font-playfair mb-3 mt-6">Israeli Data Subject Rights</h3>
+            <p className="text-secondary leading-relaxed mb-4">
+              If you are an Israeli resident, you have the following rights regarding your personal information:
+            </p>
+            <ul className="list-disc pl-6 text-secondary space-y-2">
+              <li><strong>Right to Access:</strong> Request a copy of your personal information we hold</li>
+              <li><strong>Right to Correction:</strong> Request correction of inaccurate or incomplete information</li>
+              <li><strong>Right to Deletion:</strong> Request deletion of your personal information (subject to legal retention requirements)</li>
+              <li><strong>Right to Data Portability:</strong> Receive your data in a machine-readable format</li>
+              <li><strong>Right to Object:</strong> Object to processing of your personal information for marketing or profiling purposes</li>
+              <li><strong>Right to Restriction:</strong> Request restriction of processing under certain circumstances</li>
+              <li><strong>Right to Withdraw Consent:</strong> Withdraw your consent at any time where processing is based on consent</li>
+            </ul>
+
+            <p className="text-secondary leading-relaxed mt-6">
+              To exercise any of these rights, please contact us at{' '}
+              <a href="mailto:shaylee@jordan-ai.com" className="underline hover:text-primary">shaylee@jordan-ai.com</a>.
+              We will respond to your request within <strong>30 days</strong> as required by Israeli law.
+            </p>
+
+            <h3 className="text-xl font-playfair mb-3 mt-6">Third-Party AI Service Providers</h3>
+            <p className="text-secondary leading-relaxed mb-4">
+              To provide AI integration services, we may share your project data with the following third-party AI platforms:
+            </p>
+            <ul className="list-disc pl-6 text-secondary space-y-2">
+              <li><strong>OpenAI:</strong> For ChatGPT, GPT-4 API integrations, and AI implementations</li>
+              <li><strong>Anthropic:</strong> For Claude AI consulting and implementations</li>
+              <li><strong>Other AI platforms:</strong> As needed for specific project requirements (with your knowledge)</li>
+            </ul>
+            <p className="text-secondary leading-relaxed mt-4">
+              These platforms process data according to their own privacy policies. Data may be transferred to the
+              United States or other countries. We ensure appropriate safeguards are in place for international data
+              transfers as required by Israeli law.
+            </p>
+
+            <h3 className="text-xl font-playfair mb-3 mt-6">Data Retention Policy</h3>
+            <p className="text-secondary leading-relaxed mb-4">
+              We retain your personal information for the following periods:
+            </p>
+            <ul className="list-disc pl-6 text-secondary space-y-2">
+              <li><strong>Active clients:</strong> During project duration + 7 years (Israeli tax law requirement)</li>
+              <li><strong>Inactive leads:</strong> Contact form data deleted after 2 years of inactivity</li>
+              <li><strong>Marketing contacts:</strong> Until opt-out or 3 years of inactivity</li>
+              <li><strong>Legal obligations:</strong> As required by Israeli law for accounting and legal purposes</li>
+            </ul>
+
+            <h3 className="text-xl font-playfair mb-3 mt-6">Israeli Privacy Protection Authority</h3>
+            <p className="text-secondary leading-relaxed mb-4">
+              If you have complaints about our data practices that we cannot resolve, you may contact:
+            </p>
+            <div className="bg-accent/20 p-4 rounded space-y-2 text-secondary">
+              <p><strong>Privacy Protection Authority (Israel)</strong></p>
+              <p>Ministry of Justice, Israel</p>
+              <p>Website: <a href="https://www.gov.il/en/departments/the_privacy_protection_authority" target="_blank" rel="noopener noreferrer" className="underline hover:text-primary">gov.il/en/departments/the_privacy_protection_authority</a></p>
+            </div>
           </section>
 
           <section>

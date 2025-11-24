@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   },
 };
 
+import CookieConsent from '@/components/CookieConsent';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -48,7 +50,10 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}
+        <CookieConsent />
+      </body>
     </html>
   );
 }

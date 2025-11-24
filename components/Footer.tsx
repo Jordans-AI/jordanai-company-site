@@ -6,31 +6,76 @@ export default function Footer() {
   return (
     <footer className="py-12 px-6 border-t border-accent/50" role="contentinfo">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+        {/* Main footer content */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-8">
+          {/* Left side: Company info */}
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="flex flex-col md:flex-row items-center gap-4 md:gap-6"
+            className="flex flex-col gap-3"
           >
-            <p className="text-secondary text-sm">
-              © 2025 Jordan-AI. All rights reserved.
-            </p>
-            <div className="flex items-center gap-4 text-sm">
+            <p className="text-primary font-medium">Jordan-AI</p>
+            <p className="text-secondary text-sm">Exempt Dealer (עוסק פטור)</p>
+            <p className="text-secondary text-sm">Tel Aviv, Israel</p>
+            <div className="flex flex-col gap-1 text-sm">
+              <a
+                href="mailto:shaylee@jordan-ai.com"
+                className="text-secondary hover:text-primary transition-colors"
+              >
+                shaylee@jordan-ai.com
+              </a>
+              <a
+                href="tel:+972054972871"
+                className="text-secondary hover:text-primary transition-colors"
+              >
+                +972 054 972 8712
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right side: Legal links */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="flex flex-col gap-3"
+          >
+            <p className="text-primary font-medium text-sm">Legal</p>
+            <div className="flex flex-col gap-2 text-sm">
               <a
                 href="/privacy"
                 className="text-secondary hover:text-primary transition-colors"
               >
                 Privacy Policy
               </a>
-              <span className="text-accent">•</span>
               <a
                 href="/terms"
                 className="text-secondary hover:text-primary transition-colors"
               >
                 Terms of Service
               </a>
+              <a
+                href="/accessibility"
+                className="text-secondary hover:text-primary transition-colors"
+              >
+                Accessibility Statement
+              </a>
             </div>
+          </motion.div>
+
+        </div>
+
+        {/* Bottom section: Social media and copyright */}
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 border-t border-accent/30">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-secondary text-sm">
+              © 2025 Jordan-AI. All rights reserved.
+            </p>
           </motion.div>
 
           <motion.div
